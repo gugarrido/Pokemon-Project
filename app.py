@@ -24,7 +24,8 @@ def index():
                 session['pokeheight'] = result['pokemon_height']
                 session['pokeweight'] = result['pokemon_weight']
                 session['poketype'] = result['pokemon_type'].capitalize()
-                return redirect(url_for("pokedex2v", pokename=pokemonname.capitalize()))
+                session['pokename'] = pokemonname.capitalize()
+                return redirect(url_for("pokedex2v"))
 
             elif result['status'] == 403:
                 api = GetApi()
@@ -45,8 +46,9 @@ def index():
     else:    
         return render_template("index.html")
 
-@app.route('/pokedex2v/<pokename>')
-def pokedex2v(pokename):
+@app.route('/pokedex2v/')
+def pokedex2v():
+    pokename = session['pokename']
     pokeid = session['pokeid']
     pokeheight = session['pokeheight']
     pokeweight = session['pokeweight']
