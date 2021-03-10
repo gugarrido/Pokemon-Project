@@ -57,9 +57,9 @@ To get a local copy up and running follow these simple example steps.
    ```
 
 2. Create Python Virtual Environment 
-  ```sh
-  python3 -m venv venv 
-  ```
+   ```sh
+   python3 -m venv venv 
+   ```
      
 3. Install PIP packages
    ```sh
